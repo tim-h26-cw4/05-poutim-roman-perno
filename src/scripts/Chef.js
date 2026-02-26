@@ -1,8 +1,10 @@
+import Poutine from './Poutine.js';
+
 export default class Chef {
   constructor(element) {
     this.element = element;
     this.menu = [];
-    this.container = document.querySelectorAll('.chef__order');
+    this.container = this.element.querySelector('.chef__order');
     this.init();
   }
 
@@ -12,7 +14,8 @@ export default class Chef {
     );
     for (let i = 0; i < poutines.length; i++) {
       const poutine = poutines[i];
-      this.menu.push(poutine);
+      const instance = new Poutine(poutine);
+      this.menu.push(instance);
     }
 
     const btnCommande = this.element.querySelectorAll('.js-order');
@@ -23,6 +26,7 @@ export default class Chef {
   }
 
   sendOrder() {
-    console.log('test');
+    const nbPoutines = this.menu.length;
+    console.log(nbPoutines);
   }
 }
