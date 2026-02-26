@@ -26,7 +26,15 @@ export default class Chef {
   }
 
   sendOrder() {
-    const nbPoutines = this.menu.length;
-    console.log(nbPoutines);
+    let choix = false;
+
+    for (let i = 0; i < this.menu.length; i++) {
+      const choixMenu = this.menu[i];
+
+      if (choixMenu.isActive == true) {
+        choix = true;
+        const listItem = document.createElement('p');
+      }
+    }
   }
 }

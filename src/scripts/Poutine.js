@@ -3,6 +3,7 @@ export default class Poutine {
     this.element = element;
     this.types = this.element.querySelectorAll('.js-type');
     this.selectedType = '';
+    this.isActive = false;
     this.init();
   }
 
@@ -19,6 +20,8 @@ export default class Poutine {
     }
     event.target.classList.add('is-active');
     this.selectedType = event.target.innerText;
+
+    this.isActive = !this.isActive;
 
     this.updatePhoto();
   }
