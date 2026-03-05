@@ -4,7 +4,7 @@ export default class Chef {
   constructor(element) {
     this.element = element;
     this.menu = [];
-    this.container = this.element.querySelector('.chef__order');
+    this.container = this.element.querySelector('.js-container');
     this.init();
   }
 
@@ -26,15 +26,21 @@ export default class Chef {
   }
 
   sendOrder() {
+    this.container.innerHTML = '';
     let choix = false;
+    let total = 0;
 
     for (let i = 0; i < this.menu.length; i++) {
       const choixMenu = this.menu[i];
 
       if (choixMenu.isActive == true) {
         choix = true;
-        const listItem = document.createElement('p');
+        total++;
       }
     }
+
+    const listItem = document.createElement('p');
+    listItem.textContent = `Nombre total de poutine(s) : ${total}`;
+    this.container.appendChild(listItem);
   }
 }
